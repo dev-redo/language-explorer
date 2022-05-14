@@ -3,16 +3,16 @@ import SearchInput from './SearchInput.js';
 import Suggestion from './Suggestion.js';
 import SelectedLanguage from './SelectedLanguages.js';
 
-const prevState = JSON.parse(window.localStorage.getItem('state'));
+const prevState = JSON.parse(window.localStorage.getItem('state')) ?? {
+  keyword: '',
+  isFocus: true,
+  fetchedLanguages: [],
+  selectedLanguages: [],
+};
+prevState.isFocus = true;
 
 export default function Search({ $target }) {
-  this.state = prevState ?? {
-    keyword: '',
-    isFocus: true,
-    fetchedLanguages: [],
-    selectedLanguages: [],
-  };
-  this.state.isFocus = true;
+  this.state = prevState;
 
   this.setState = (nextState) => {
     this.state = {
