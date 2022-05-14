@@ -79,7 +79,7 @@ export default function Suggestion({ $target, initialState, onSelect }) {
     }
   });
 
-  this.$element.addEventListener('click', (e) => {
+  this.$element.addEventListener('mousedown', (e) => {
     const $li = e.target.closest('li');
     if ($li) {
       const { index } = $li.dataset;
